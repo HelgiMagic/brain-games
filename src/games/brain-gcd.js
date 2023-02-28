@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { greeting, findGCD } from '../cli.js';
-import { question } from '../index.js';
+import question from '../index.js';
 
 function brainGCD() {
   const name = greeting();

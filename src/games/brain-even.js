@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { greeting } from '../cli.js';
-import { question } from '../index.js';
+import question from '../index.js';
 
 function brainEven() {
   const name = greeting();

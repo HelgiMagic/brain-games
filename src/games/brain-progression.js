@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { greeting } from '../cli.js';
-import { question } from '../index.js';
+import question from '../index.js';
 
 function brainProgression() {
   const name = greeting();
@@ -20,9 +20,8 @@ function brainProgression() {
       if (i === missingNumberPosition) {
         missingNumber = numberOfProgression;
         arrayWithNumbersOfProgression.push('..');
-        continue;
       }
-      arrayWithNumbersOfProgression.push(numberOfProgression);
+      if (i !== missingNumberPosition) { arrayWithNumbersOfProgression.push(numberOfProgression); }
     }
 
     const row = arrayWithNumbersOfProgression.join(' ');

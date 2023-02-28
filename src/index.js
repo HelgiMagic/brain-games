@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 function question(task, rightAnswer, name, countOfRightAnswers) {
   console.log(`Question: ${task}`);
   const answer = readlineSync.question('Your answer: ');
-  if (answer == rightAnswer) {
+  if (answer === rightAnswer.toString()) {
     console.log('Correct!');
   } else {
     console.log(`'${answer}' is the wrong answer ;(. Correct answer was '${rightAnswer}'`);
@@ -13,6 +13,7 @@ function question(task, rightAnswer, name, countOfRightAnswers) {
   if (countOfRightAnswers === 3) {
     console.log(`Congratulations, ${name}!`);
   }
+  return rightAnswer;
 }
 
-export { question };
+export default question;
