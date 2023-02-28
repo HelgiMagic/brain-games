@@ -4,7 +4,7 @@ import { question } from '../index.js';
 
 function brainCalc() {
   const name = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log('What is the result of the expression?');
   let countOfRightAnswers = 0;
   const operators = ['+', '-', '*'];
   while (countOfRightAnswers < 3) {
