@@ -9,11 +9,12 @@ function brainProgression() {
   let countOfRightAnswers = 0;
 
   while (countOfRightAnswers < 3) {
-    const oneStep = Math.floor(Math.random() * (11   - 2)) + 2;
+    const oneStep = Math.floor(Math.random() * (11 - 2)) + 2;
     const arrayWithNumbersOfProgression = [];
     let numberOfProgression = Math.floor(Math.random() * 100);
     const missingNumberPosition = Math.floor(Math.random() * 10);
     let missingNumber = 0;
+
     for (let i = 0; i < 10; i += 1) {
       numberOfProgression += oneStep;
       if (i === missingNumberPosition) {
@@ -23,6 +24,7 @@ function brainProgression() {
       }
       arrayWithNumbersOfProgression.push(numberOfProgression);
     }
+
     const row = arrayWithNumbersOfProgression.join(' ');
     const correctAnswer = missingNumber;
     countOfRightAnswers += 1;
