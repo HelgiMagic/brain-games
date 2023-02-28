@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { greeting } from '../cli.js';
+import { greeting, isPrimeNumber } from '../cli.js';
 import { question } from '../index.js';
 
 function brainPrime() {
@@ -9,10 +9,7 @@ function brainPrime() {
   while (countOfRightAnswers < 3) {
     let correctAnswer = 'no';
     const number = Math.floor(Math.random() * 100);
-    for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) { break; }
-      if (number - 1 === i) { correctAnswer = 'yes'; }
-    }
+    if (isPrimeNumber(number)) { correctAnswer = 'yes' };
     countOfRightAnswers += 1;
     const brainPrimeQuestion = question(number, correctAnswer, name, countOfRightAnswers);
     if (brainPrimeQuestion === 'incorrect') {
