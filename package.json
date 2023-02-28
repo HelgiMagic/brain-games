@@ -12,7 +12,8 @@
   "bin": {
     "code": "bin/brain-games.js",
     "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js"
   },
   "dependencies": {
     "eslint": "^8.35.0",
