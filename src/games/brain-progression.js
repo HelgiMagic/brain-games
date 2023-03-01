@@ -1,36 +1,31 @@
 #!/usr/bin/env node
-import { greeting } from '../cli.js';
-import question from '../index.js';
+import {
+  greeting, runRound, countOfRounds, randomNumber, hideItem, generateArray,
+} from '../index.js';
 
-function brainProgression() {
+const description = 'What number is missing in the progression?';
+
+function runProgressionGame() {
   const name = greeting();
-  console.log('What number is missing in the progression?');
+  console.log(description);
 
   let countOfRightAnswers = 0;
 
-  while (countOfRightAnswers < 3) {
-    const oneStep = Math.floor(Math.random() * (11 - 2)) + 2;
-    const arrayWithNumbersOfProgression = [];
-    let numberOfProgression = Math.floor(Math.random() * 100);
-    const missingNumberPosition = Math.floor(Math.random() * 10);
-    let missingNumber = 0;
+  while (countOfRightAnswers < countOfRounds) {
+    const oneStep = randomNumber(10, 2);
+    const startNumberOfProgression = randomNumber(100);
+    const arrayWithNumbersOfProgression = generateArray(startNumberOfProgression, oneStep, 10);
 
-    for (let i = 0; i < 10; i += 1) {
-      numberOfProgression += oneStep;
-      if (i === missingNumberPosition) {
-        missingNumber = numberOfProgression;
-        arrayWithNumbersOfProgression.push('..');
-      }
-      if (i !== missingNumberPosition) { arrayWithNumbersOfProgression.push(numberOfProgression); }
-    }
+    const missingNumberPosition = randomNumber(9);
+    const resultArray = hideItem(arrayWithNumbersOfProgression, missingNumberPosition);
 
-    const row = arrayWithNumbersOfProgression.join(' ');
-    const correctAnswer = missingNumber;
+    const row = resultArray.join(' ');
+    const correctAnswer = arrayWithNumbersOfProgression[missingNumberPosition];
     countOfRightAnswers += 1;
-    const brainEvenQuestion = question(row, correctAnswer, name, countOfRightAnswers);
+    const brainEvenQuestion = runRound(row, correctAnswer, name, countOfRightAnswers);
     if (brainEvenQuestion === 'incorrect') {
       return;
     }
   }
 }
-export default brainProgression;
+export default runProgressionGame;

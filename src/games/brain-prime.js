@@ -1,20 +1,22 @@
 #!/usr/bin/env node
-import { greeting, isPrimeNumber } from '../cli.js';
-import question from '../index.js';
+import {
+  isPrimeNumber, greeting, runRound, countOfRounds, randomNumber,
+} from '../index.js';
 
-function brainPrime() {
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+function runPrimeGame() {
   const name = greeting();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  console.log(description);
   let countOfRightAnswers = 0;
-  while (countOfRightAnswers < 3) {
-    let correctAnswer = 'no';
-    const number = Math.floor(Math.random() * 100);
-    if (isPrimeNumber(number)) { correctAnswer = 'yes'; }
+  while (countOfRightAnswers < countOfRounds) {
+    const number = randomNumber(100);
+    const correctAnswer = isPrimeNumber(number);
     countOfRightAnswers += 1;
-    const brainPrimeQuestion = question(number, correctAnswer, name, countOfRightAnswers);
+    const brainPrimeQuestion = runRound(number, correctAnswer, name, countOfRightAnswers);
     if (brainPrimeQuestion === 'incorrect') {
       return;
     }
   }
 }
-export default brainPrime;
+export default runPrimeGame;

@@ -1,30 +1,26 @@
 #!/usr/bin/env node
-import { greeting } from '../cli.js';
-import question from '../index.js';
+import {
+  calcNumbs, greeting, runRound, countOfRounds, randomNumber,
+} from '../index.js';
 
-function brainCalc() {
+const description = 'What is the result of the expression?';
+
+function runCalcGame() {
   const name = greeting();
-  console.log('What is the result of the expression?');
+  console.log(description);
   let countOfRightAnswers = 0;
   const operators = ['+', '-', '*'];
-  while (countOfRightAnswers < 3) {
-    const numberOne = Math.floor(Math.random() * 30);
-    const numberTwo = Math.floor(Math.random() * 30);
-    const operation = operators[Math.floor(Math.random() * 3)];
+  while (countOfRightAnswers < countOfRounds) {
+    const numberOne = randomNumber(30);
+    const numberTwo = randomNumber(30);
+    const operation = operators[randomNumber(2)];
     const task = `${numberOne} ${operation} ${numberTwo}`;
-    let correctAnswer;
-    if (operation === '+') {
-      correctAnswer = numberOne + numberTwo;
-    } else if (operation === '-') {
-      correctAnswer = numberOne - numberTwo;
-    } else if (operation === '*') {
-      correctAnswer = numberOne * numberTwo;
-    }
+    const correctAnswer = calcNumbs(numberOne, operation, numberTwo);
     countOfRightAnswers += 1;
-    const brainCalcQuestion = question(task, correctAnswer, name, countOfRightAnswers);
+    const brainCalcQuestion = runRound(task, correctAnswer, name, countOfRightAnswers);
     if (brainCalcQuestion === 'incorrect') {
       return;
     }
   }
 }
-export default brainCalc;
+export default runCalcGame;

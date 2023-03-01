@@ -17,9 +17,23 @@ function findGCD(firstNum, secondNum) {
   return GCD;
 }
 function isPrimeNumber(number) {
+  if (number < 2) { return 'no'; }
   for (let i = 2; i <= Math.sqrt(number); i += 1) {
-    if (number % i === 0) { return false; }
+    if (number % i === 0) { return 'no'; }
   }
-  return number > 1;
+  return 'yes';
 }
-export { greeting, findGCD, isPrimeNumber };
+function calcNumbs(numberOne, operation, numberTwo) {
+  let result = 0;
+  if (operation === '+') {
+    result = numberOne + numberTwo;
+  } else if (operation === '-') {
+    result = numberOne - numberTwo;
+  } else if (operation === '*') {
+    result = numberOne * numberTwo;
+  }
+  return result;
+}
+export {
+  greeting, findGCD, isPrimeNumber, calcNumbs,
+};

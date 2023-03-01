@@ -1,21 +1,24 @@
 #!/usr/bin/env node
-import { greeting, findGCD } from '../cli.js';
-import question from '../index.js';
+import {
+  findGCD, greeting, runRound, countOfRounds, randomNumber,
+} from '../index.js';
 
-function brainGCD() {
+const description = 'Find the greatest common divisor of given numbers.';
+
+function runGCDGame() {
   const name = greeting();
-  console.log('Find the greatest common divisor of given numbers.');
+  console.log(description);
   let countOfRightAnswers = 0;
-  while (countOfRightAnswers < 3) {
-    const numberOne = Math.floor(Math.random() * 100);
-    const numberTwo = Math.floor(Math.random() * 100);
+  while (countOfRightAnswers < countOfRounds) {
+    const numberOne = randomNumber(100);
+    const numberTwo = randomNumber(100);
     const GCD = findGCD(numberOne, numberTwo);
     const correctAnswer = GCD;
     countOfRightAnswers += 1;
-    const brainGCDQuestion = question(`${numberOne} ${numberTwo}`, correctAnswer, name, countOfRightAnswers);
+    const brainGCDQuestion = runRound(`${numberOne} ${numberTwo}`, correctAnswer, name, countOfRightAnswers);
     if (brainGCDQuestion === 'incorrect') {
       return;
     }
   }
 }
-export default brainGCD;
+export default runGCDGame;

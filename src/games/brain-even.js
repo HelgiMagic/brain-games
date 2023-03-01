@@ -1,19 +1,22 @@
 #!/usr/bin/env node
-import { greeting } from '../cli.js';
-import question from '../index.js';
+import {
+  greeting, runRound, countOfRounds, randomNumber, isEven,
+} from '../index.js';
 
-function brainEven() {
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function runEvenGame() {
   const name = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log(description);
   let countOfRightAnswers = 0;
-  while (countOfRightAnswers < 3) {
-    const number = Math.floor(Math.random() * 1000);
-    const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
+  while (countOfRightAnswers < countOfRounds) {
+    const number = randomNumber(1000);
+    const correctAnswer = isEven(number);
     countOfRightAnswers += 1;
-    const brainEvenQuestion = question(number, correctAnswer, name, countOfRightAnswers);
+    const brainEvenQuestion = runRound(number, correctAnswer, name, countOfRightAnswers);
     if (brainEvenQuestion === 'incorrect') {
       return;
     }
   }
 }
-export default brainEven;
+export default runEvenGame;
