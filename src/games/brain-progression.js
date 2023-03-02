@@ -1,12 +1,34 @@
-#!/usr/bin/env node
+import readlineSync from 'readline-sync';
 import {
-  greeting, runRound, countOfRounds, randomNumber, hideItem, generateArray,
+  runRound, countOfRounds, randomNumber,
 } from '../index.js';
+
+function hideItem(array, hiddenNumberPosition) {
+  const result = [];
+  for (let i = 0; i < array.length; i += 1) {
+    if (i !== hiddenNumberPosition) {
+      result.push(array[i]);
+    } else {
+      result.push('..');
+    }
+  }
+  return result;
+}
+
+function generateArray(startNumber, oneStep, length) {
+  const result = [];
+  for (let i = 0, currentNumber = startNumber; i < length; i += 1, currentNumber += oneStep) {
+    result.push(currentNumber);
+  }
+  return result;
+}
 
 const description = 'What number is missing in the progression?';
 
 function runProgressionGame() {
-  const name = greeting();
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   console.log(description);
 
   let countOfRightAnswers = 0;

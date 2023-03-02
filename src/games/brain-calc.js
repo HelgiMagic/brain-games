@@ -1,12 +1,26 @@
-#!/usr/bin/env node
+import readlineSync from 'readline-sync';
 import {
-  calcNumbs, greeting, runRound, countOfRounds, randomNumber,
+  runRound, countOfRounds, randomNumber,
 } from '../index.js';
+
+function calcNumbs(numberOne, operation, numberTwo) {
+  let result = 0;
+  if (operation === '+') {
+    result = numberOne + numberTwo;
+  } else if (operation === '-') {
+    result = numberOne - numberTwo;
+  } else if (operation === '*') {
+    result = numberOne * numberTwo;
+  }
+  return result;
+}
 
 const description = 'What is the result of the expression?';
 
 function runCalcGame() {
-  const name = greeting();
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   console.log(description);
   let countOfRightAnswers = 0;
   const operators = ['+', '-', '*'];
