@@ -3,9 +3,7 @@ import readlineSync from 'readline-sync';
 const countOfRounds = 3;
 
 const runGame = (questionsAnswers, name) => {
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const question = questionsAnswers[i][0];
-    const rightAnswer = questionsAnswers[i][1];
+  for (const [question, rightAnswer] of questionsAnswers) {
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === rightAnswer.toString()) {
@@ -15,10 +13,8 @@ const runGame = (questionsAnswers, name) => {
       console.log(`Let's try again, ${name}!`);
       return;
     }
-    if (i === countOfRounds - 1) {
-      console.log(`Congratulations, ${name}!`);
-    }
   }
+  console.log(`Congratulations, ${name}!`);
 };
 
 const randomNumber = (maxI, minI = 0) => Math.floor(Math.random() * ((maxI + 1) - minI) + minI);
