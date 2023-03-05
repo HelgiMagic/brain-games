@@ -6,12 +6,12 @@ const description = 'Find the greatest common divisor of given numbers.';
 
 const findGcd = (number1, number2) => {
   const minNumber = Math.min(number1, number2);
-  let maxNumber = Math.max(number1, number2);
+  const maxNumber = Math.max(number1, number2);
   if (maxNumber % minNumber === 0) {
     return minNumber;
   }
-  maxNumber %= minNumber;
-  return findGcd(maxNumber, minNumber);
+  const remainder = maxNumber % minNumber;
+  return findGcd(remainder, minNumber);
 };
 
 const runGCDGame = () => {
