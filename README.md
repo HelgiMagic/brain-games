@@ -8,8 +8,17 @@ A project with five math mini-games in total. You will be able to solve examples
 
 ### What do I need to start playing?
 1. Copy the repository to your computer using git clone
+```bash
+git clone https://github.com/HelgiMagic/frontend-project-44.git
+```
 2. To start using this project, type the make install in bash command. This command will install all the necessary modules for the project to work.
+```bash
+make install
+```
 3. write "npm link" in the bash, this will add the ability to use commands that launch mini-games
+```bash
+npm link
+```
 
 ### What mini-games are available and how to launch them?
 There are 5 mini-games in total, commands to run and examples are given below:

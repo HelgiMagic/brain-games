@@ -4,7 +4,7 @@ import {
 
 const description = 'What is the result of the expression?';
 
-function calcNumbs(number1, number2, operator) {
+const calcNumbs = (number1, number2, operator) => {
   let result;
   if (operator === '+') {
     result = number1 + number2;
@@ -14,9 +14,9 @@ function calcNumbs(number1, number2, operator) {
     result = number1 * number2;
   }
   return result;
-}
+};
 
-function runCalcGame() {
+const runCalcGame = () => {
   const name = greeting(description);
   const operators = ['+', '-', '*'];
   const questionsAnswers = [];
@@ -29,5 +29,5 @@ function runCalcGame() {
     questionsAnswers.push([question, correctAnswer]);
   }
   runGame(questionsAnswers, name);
-}
+};
 export default runCalcGame;

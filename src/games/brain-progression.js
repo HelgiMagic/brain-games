@@ -4,7 +4,7 @@ import {
 
 const description = 'What number is missing in the progression?';
 
-function hideItem(array, hiddenNumberPosition) {
+const hideItem = (array, hiddenNumberPosition) => {
   const result = [];
   for (let i = 0; i < array.length; i += 1) {
     if (i !== hiddenNumberPosition) {
@@ -14,17 +14,17 @@ function hideItem(array, hiddenNumberPosition) {
     }
   }
   return result;
-}
+};
 
-function generateProgressionArray(startNumber, oneStep, length) {
+const generateProgressionArray = (startNumber, oneStep, length) => {
   const result = [];
   for (let i = 0, currentNumber = startNumber; i < length; i += 1, currentNumber += oneStep) {
     result.push(currentNumber);
   }
   return result;
-}
+};
 
-function runProgressionGame() {
+const runProgressionGame = () => {
   const name = greeting(description);
   const questionsAnswers = [];
   for (let i = 0; i < countOfRounds; i += 1) {
@@ -42,5 +42,5 @@ function runProgressionGame() {
     questionsAnswers.push([question, correctAnswer]);
   }
   runGame(questionsAnswers, name);
-}
+};
 export default runProgressionGame;

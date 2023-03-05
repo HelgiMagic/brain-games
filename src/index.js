@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 const countOfRounds = 3;
 
-function runGame(questionsAnswers, name) {
+const runGame = (questionsAnswers, name) => {
   for (let i = 0; i < countOfRounds; i += 1) {
     const question = questionsAnswers[i][0];
     const rightAnswer = questionsAnswers[i][1];
@@ -19,19 +19,17 @@ function runGame(questionsAnswers, name) {
       console.log(`Congratulations, ${name}!`);
     }
   }
-}
+};
 
-function randomNumber(maxNumIncluded, minNumIncluded = 0) {
-  return Math.floor(Math.random() * ((maxNumIncluded + 1) - minNumIncluded) + minNumIncluded);
-}
+const randomNumber = (maxI, minI = 0) => Math.floor(Math.random() * ((maxI + 1) - minI) + minI);
 
-function greeting(description) {
+const greeting = (description) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(description);
   return name;
-}
+};
 
 export {
   runGame, countOfRounds, randomNumber, greeting,

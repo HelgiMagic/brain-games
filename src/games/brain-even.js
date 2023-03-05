@@ -4,9 +4,7 @@ import {
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function isEven(number) {
-  return (number % 2 === 0);
-}
+const isEven = (number) => (number % 2 === 0);
 
 function runEvenGame() {
   const name = greeting(description);

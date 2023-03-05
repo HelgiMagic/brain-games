@@ -4,7 +4,7 @@ import {
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-function findGcd(number1, number2) {
+const findGcd = (number1, number2) => {
   const minNumber = Math.min(number1, number2);
   let maxNumber = Math.max(number1, number2);
   if (maxNumber % minNumber === 0) {
@@ -12,9 +12,9 @@ function findGcd(number1, number2) {
   }
   maxNumber %= minNumber;
   return findGcd(maxNumber, minNumber);
-}
+};
 
-function runGCDGame() {
+const runGCDGame = () => {
   const name = greeting(description);
   const questionsAnswers = [];
   for (let i = 0; i < countOfRounds; i += 1) {
@@ -26,5 +26,5 @@ function runGCDGame() {
     questionsAnswers.push([question, correctAnswer]);
   }
   runGame(questionsAnswers, name);
-}
+};
 export default runGCDGame;
