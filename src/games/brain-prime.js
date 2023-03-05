@@ -1,32 +1,25 @@
-import readlineSync from 'readline-sync';
 import {
-  runRound, countOfRounds, randomNumber,
+  runGame, countOfRounds, randomNumber, greeting,
 } from '../index.js';
-
-function isPrimeNumber(number) {
-  if (number < 2) { return 'no'; }
-  for (let i = 2; i <= Math.sqrt(number); i += 1) {
-    if (number % i === 0) { return 'no'; }
-  }
-  return 'yes';
-}
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function runPrimeGame() {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(description);
-  let countOfRightAnswers = 0;
-  while (countOfRightAnswers < countOfRounds) {
-    const number = randomNumber(100);
-    const correctAnswer = isPrimeNumber(number);
-    countOfRightAnswers += 1;
-    const brainPrimeQuestion = runRound(number, correctAnswer, name, countOfRightAnswers);
-    if (brainPrimeQuestion === 'incorrect') {
-      return;
-    }
+function isPrimeNumber(number) {
+  if (number < 2) { return false; }
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
+    if (number % i === 0) { return false; }
   }
+  return true;
+}
+
+function runPrimeGame() {
+  const name = greeting(description);
+  const questionsAnswers = [];
+  for (let i = 0; i < countOfRounds; i += 1) {
+    const number = randomNumber(100);
+    const correctAnswer = isPrimeNumber(number) ? 'yes' : 'no';
+    questionsAnswers.push([number, correctAnswer]);
+  }
+  runGame(questionsAnswers, name);
 }
 export default runPrimeGame;

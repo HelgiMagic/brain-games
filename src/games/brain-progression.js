@@ -1,7 +1,8 @@
-import readlineSync from 'readline-sync';
 import {
-  runRound, countOfRounds, randomNumber,
+  runGame, countOfRounds, randomNumber, greeting,
 } from '../index.js';
+
+const description = 'What number is missing in the progression?';
 
 function hideItem(array, hiddenNumberPosition) {
   const result = [];
@@ -15,7 +16,7 @@ function hideItem(array, hiddenNumberPosition) {
   return result;
 }
 
-function generateArray(startNumber, oneStep, length) {
+function generateProgressionArray(startNumber, oneStep, length) {
   const result = [];
   for (let i = 0, currentNumber = startNumber; i < length; i += 1, currentNumber += oneStep) {
     result.push(currentNumber);
@@ -23,31 +24,23 @@ function generateArray(startNumber, oneStep, length) {
   return result;
 }
 
-const description = 'What number is missing in the progression?';
-
 function runProgressionGame() {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(description);
-
-  let countOfRightAnswers = 0;
-
-  while (countOfRightAnswers < countOfRounds) {
+  const name = greeting(description);
+  const questionsAnswers = [];
+  for (let i = 0; i < countOfRounds; i += 1) {
     const oneStep = randomNumber(10, 2);
     const startNumberOfProgression = randomNumber(100);
-    const arrayWithNumbersOfProgression = generateArray(startNumberOfProgression, oneStep, 10);
+    const length = 10;
+    const array = generateProgressionArray(startNumberOfProgression, oneStep, length);
 
     const missingNumberPosition = randomNumber(9);
-    const resultArray = hideItem(arrayWithNumbersOfProgression, missingNumberPosition);
+    const resultArray = hideItem(array, missingNumberPosition);
 
-    const row = resultArray.join(' ');
-    const correctAnswer = arrayWithNumbersOfProgression[missingNumberPosition];
-    countOfRightAnswers += 1;
-    const brainEvenQuestion = runRound(row, correctAnswer, name, countOfRightAnswers);
-    if (brainEvenQuestion === 'incorrect') {
-      return;
-    }
+    const question = resultArray.join(' ');
+    const correctAnswer = array[missingNumberPosition];
+
+    questionsAnswers.push([question, correctAnswer]);
   }
+  runGame(questionsAnswers, name);
 }
 export default runProgressionGame;

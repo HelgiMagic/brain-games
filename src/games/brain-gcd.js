@@ -1,37 +1,30 @@
-import readlineSync from 'readline-sync';
 import {
-  runRound, countOfRounds, randomNumber,
+  runGame, countOfRounds, randomNumber, greeting,
 } from '../index.js';
-
-function findGCD(firstNum, secondNum) {
-  const minNumber = Math.min(firstNum, secondNum);
-  let GCD = 0;
-  for (let i = 0; i <= minNumber; i += 1) {
-    if (firstNum % i === 0 && secondNum % i === 0) {
-      GCD = i;
-    }
-  }
-  return GCD;
-}
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-function runGCDGame() {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(description);
-  let countOfRightAnswers = 0;
-  while (countOfRightAnswers < countOfRounds) {
-    const numberOne = randomNumber(100);
-    const numberTwo = randomNumber(100);
-    const GCD = findGCD(numberOne, numberTwo);
-    const correctAnswer = GCD;
-    countOfRightAnswers += 1;
-    const brainGCDQuestion = runRound(`${numberOne} ${numberTwo}`, correctAnswer, name, countOfRightAnswers);
-    if (brainGCDQuestion === 'incorrect') {
-      return;
-    }
+function findGcd(number1, number2) {
+  const minNumber = Math.min(number1, number2);
+  let maxNumber = Math.max(number1, number2);
+  if (maxNumber % minNumber === 0) {
+    return minNumber;
   }
+  maxNumber %= minNumber;
+  return findGcd(maxNumber, minNumber);
+}
+
+function runGCDGame() {
+  const name = greeting(description);
+  const questionsAnswers = [];
+  for (let i = 0; i < countOfRounds; i += 1) {
+    const number1 = randomNumber(100);
+    const number2 = randomNumber(100);
+
+    const question = `${number1} ${number2}`;
+    const correctAnswer = findGcd(number1, number2);
+    questionsAnswers.push([question, correctAnswer]);
+  }
+  runGame(questionsAnswers, name);
 }
 export default runGCDGame;

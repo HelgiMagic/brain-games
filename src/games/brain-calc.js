@@ -1,40 +1,33 @@
-import readlineSync from 'readline-sync';
 import {
-  runRound, countOfRounds, randomNumber,
+  runGame, countOfRounds, randomNumber, greeting,
 } from '../index.js';
 
-function calcNumbs(numberOne, operation, numberTwo) {
-  let result = 0;
-  if (operation === '+') {
-    result = numberOne + numberTwo;
-  } else if (operation === '-') {
-    result = numberOne - numberTwo;
-  } else if (operation === '*') {
-    result = numberOne * numberTwo;
+const description = 'What is the result of the expression?';
+
+function calcNumbs(number1, number2, operator) {
+  let result;
+  if (operator === '+') {
+    result = number1 + number2;
+  } else if (operator === '-') {
+    result = number1 - number2;
+  } else if (operator === '*') {
+    result = number1 * number2;
   }
   return result;
 }
 
-const description = 'What is the result of the expression?';
-
 function runCalcGame() {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(description);
-  let countOfRightAnswers = 0;
+  const name = greeting(description);
   const operators = ['+', '-', '*'];
-  while (countOfRightAnswers < countOfRounds) {
-    const numberOne = randomNumber(30);
-    const numberTwo = randomNumber(30);
-    const operation = operators[randomNumber(2)];
-    const task = `${numberOne} ${operation} ${numberTwo}`;
-    const correctAnswer = calcNumbs(numberOne, operation, numberTwo);
-    countOfRightAnswers += 1;
-    const brainCalcQuestion = runRound(task, correctAnswer, name, countOfRightAnswers);
-    if (brainCalcQuestion === 'incorrect') {
-      return;
-    }
+  const questionsAnswers = [];
+  for (let i = 0; i < countOfRounds; i += 1) {
+    const number1 = randomNumber(30);
+    const number2 = randomNumber(30);
+    const operator = operators[randomNumber(2)];
+    const question = `${number1} ${operator} ${number2}`;
+    const correctAnswer = calcNumbs(number1, number2, operator);
+    questionsAnswers.push([question, correctAnswer]);
   }
+  runGame(questionsAnswers, name);
 }
 export default runCalcGame;
