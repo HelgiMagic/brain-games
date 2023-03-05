@@ -3,7 +3,9 @@ import readlineSync from 'readline-sync';
 const countOfRounds = 3;
 
 const runGame = (questionsAnswers, name) => {
-  for (const [question, rightAnswer] of questionsAnswers) {
+  for (let i = 0; i < questionsAnswers; i += 1) {
+    const question = questionsAnswers[i][0];
+    const rightAnswer = questionsAnswers[i][1];
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === rightAnswer.toString()) {
