@@ -1,20 +1,9 @@
 import {
-  runGame, countOfRounds, randomNumber, greeting,
+  runGame, countOfRounds, getRandomNumber,
 } from '../index.js';
 
 const description = 'What number is missing in the progression?';
-
-const hideItem = (array, hiddenNumberPosition) => {
-  const result = [];
-  for (let i = 0; i < array.length; i += 1) {
-    if (i !== hiddenNumberPosition) {
-      result.push(array[i]);
-    } else {
-      result.push('..');
-    }
-  }
-  return result;
-};
+const arrLength = 10;
 
 const generateProgressionArray = (startNumber, oneStep, length) => {
   const result = [];
@@ -25,22 +14,20 @@ const generateProgressionArray = (startNumber, oneStep, length) => {
 };
 
 const runProgressionGame = () => {
-  const name = greeting(description);
-  const questionsAnswers = [];
+  const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const oneStep = randomNumber(10, 2);
-    const startNumberOfProgression = randomNumber(100);
-    const length = 10;
-    const array = generateProgressionArray(startNumberOfProgression, oneStep, length);
+    const oneStep = getRandomNumber(10, 2);
+    const startNumberOfProgression = getRandomNumber(100);
+    const array = generateProgressionArray(startNumberOfProgression, oneStep, arrLength);
 
-    const missingNumberPosition = randomNumber(9);
-    const resultArray = hideItem(array, missingNumberPosition);
-
-    const question = resultArray.join(' ');
+    const missingNumberPosition = getRandomNumber(9);
     const correctAnswer = array[missingNumberPosition];
 
-    questionsAnswers.push([question, correctAnswer]);
+    array.splice(missingNumberPosition, 1, '..');
+    const question = array.join(' ');
+
+    roundsData.push([question, correctAnswer]);
   }
-  runGame(questionsAnswers, name);
+  runGame(roundsData, description);
 };
 export default runProgressionGame;

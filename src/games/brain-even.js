@@ -1,5 +1,5 @@
 import {
-  runGame, countOfRounds, randomNumber, greeting,
+  runGame, countOfRounds, getRandomNumber,
 } from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -7,13 +7,12 @@ const description = 'Answer "yes" if the number is even, otherwise answer "no".'
 const isEven = (number) => (number % 2 === 0);
 
 function runEvenGame() {
-  const name = greeting(description);
-  const questionsAnswers = [];
+  const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const number = randomNumber(1000);
+    const number = getRandomNumber(1000);
     const correctAnswer = isEven(number) ? 'yes' : 'no';
-    questionsAnswers.push([number, correctAnswer]);
+    roundsData.push([number, correctAnswer]);
   }
-  runGame(questionsAnswers, name);
+  runGame(roundsData, description);
 }
 export default runEvenGame;
