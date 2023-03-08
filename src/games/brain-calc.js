@@ -1,5 +1,5 @@
 import {
-  runGame, countOfRounds, getRandomNumber,
+  runGame, getRandomNumber, generateRoundsData,
 } from '../index.js';
 
 const description = 'What is the result of the expression?';
@@ -27,9 +27,6 @@ const calcRoundData = () => {
 };
 
 export default () => {
-  const roundsData = [];
-  for (let i = 0; i < countOfRounds; i += 1) {
-    roundsData.push(calcRoundData);
-  }
+  const roundsData = generateRoundsData(calcRoundData);
   runGame(roundsData, description);
 };

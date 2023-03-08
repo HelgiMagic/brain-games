@@ -1,5 +1,5 @@
 import {
-  runGame, countOfRounds, getRandomNumber,
+  runGame, getRandomNumber, generateRoundsData,
 } from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -13,9 +13,6 @@ const evenRoundData = () => {
 };
 
 export default () => {
-  const roundsData = [];
-  for (let i = 0; i < countOfRounds; i += 1) {
-    roundsData.push(evenRoundData());
-  }
+  const roundsData = generateRoundsData(evenRoundData);
   runGame(roundsData, description);
 };

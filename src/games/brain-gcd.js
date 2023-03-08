@@ -1,5 +1,5 @@
 import {
-  runGame, countOfRounds, getRandomNumber,
+  runGame, getRandomNumber, generateRoundsData,
 } from '../index.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
@@ -24,9 +24,6 @@ const gcdRoundData = () => {
 };
 
 export default () => {
-  const roundsData = [];
-  for (let i = 0; i < countOfRounds; i += 1) {
-    roundsData.push(gcdRoundData());
-  }
+  const roundsData = generateRoundsData(gcdRoundData);
   runGame(roundsData, description);
 };

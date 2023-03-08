@@ -1,5 +1,5 @@
 import {
-  runGame, countOfRounds, getRandomNumber,
+  runGame, getRandomNumber, generateRoundsData,
 } from '../index.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -19,9 +19,6 @@ const primeRoundData = () => {
 };
 
 export default () => {
-  const roundsData = [];
-  for (let i = 0; i < countOfRounds; i += 1) {
-    roundsData.push(primeRoundData());
-  }
+  const roundsData = generateRoundsData(primeRoundData);
   runGame(roundsData, description);
 };
