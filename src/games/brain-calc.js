@@ -16,17 +16,20 @@ const calcNumbs = (number1, number2, operator) => {
   return result;
 };
 
-const runCalcGame = () => {
+const calcRoundData = () => {
   const operators = ['+', '-', '*'];
+  const number1 = getRandomNumber(30);
+  const number2 = getRandomNumber(30);
+  const operator = operators[getRandomNumber(2)];
+  const question = `${number1} ${operator} ${number2}`;
+  const correctAnswer = calcNumbs(number1, number2, operator);
+  return [question, correctAnswer];
+};
+
+export default () => {
   const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const number1 = getRandomNumber(30);
-    const number2 = getRandomNumber(30);
-    const operator = operators[getRandomNumber(2)];
-    const question = `${number1} ${operator} ${number2}`;
-    const correctAnswer = calcNumbs(number1, number2, operator);
-    roundsData.push([question, correctAnswer]);
+    roundsData.push(calcRoundData);
   }
   runGame(roundsData, description);
 };
-export default runCalcGame;

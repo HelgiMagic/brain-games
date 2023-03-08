@@ -14,16 +14,19 @@ const findGcd = (number1, number2) => {
   return findGcd(remainder, minNumber);
 };
 
-const runGCDGame = () => {
+const gcdRoundData = () => {
+  const number1 = getRandomNumber(100);
+  const number2 = getRandomNumber(100);
+
+  const question = `${number1} ${number2}`;
+  const correctAnswer = findGcd(number1, number2);
+  return [question, correctAnswer];
+};
+
+export default () => {
   const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const number1 = getRandomNumber(100);
-    const number2 = getRandomNumber(100);
-
-    const question = `${number1} ${number2}`;
-    const correctAnswer = findGcd(number1, number2);
-    roundsData.push([question, correctAnswer]);
+    roundsData.push(gcdRoundData());
   }
   runGame(roundsData, description);
 };
-export default runGCDGame;

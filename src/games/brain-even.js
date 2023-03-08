@@ -6,13 +6,16 @@ const description = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 const isEven = (number) => (number % 2 === 0);
 
-function runEvenGame() {
+const evenRoundData = () => {
+  const number = getRandomNumber(1000);
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  return [number, correctAnswer];
+};
+
+export default () => {
   const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const number = getRandomNumber(1000);
-    const correctAnswer = isEven(number) ? 'yes' : 'no';
-    roundsData.push([number, correctAnswer]);
+    roundsData.push(evenRoundData());
   }
   runGame(roundsData, description);
-}
-export default runEvenGame;
+};

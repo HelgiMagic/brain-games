@@ -12,13 +12,16 @@ const isPrimeNumber = (number) => {
   return true;
 };
 
-const runPrimeGame = () => {
+const primeRoundData = () => {
+  const number = getRandomNumber(100);
+  const correctAnswer = isPrimeNumber(number) ? 'yes' : 'no';
+  return [number, correctAnswer];
+};
+
+export default () => {
   const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const number = getRandomNumber(100);
-    const correctAnswer = isPrimeNumber(number) ? 'yes' : 'no';
-    roundsData.push([number, correctAnswer]);
+    roundsData.push(primeRoundData());
   }
   runGame(roundsData, description);
 };
-export default runPrimeGame;

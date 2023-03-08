@@ -13,21 +13,24 @@ const generateProgressionArray = (startNumber, oneStep, length) => {
   return result;
 };
 
-const runProgressionGame = () => {
+const progressionRoundData = () => {
+  const oneStep = getRandomNumber(10, 2);
+  const startNumberOfProgression = getRandomNumber(100);
+  const array = generateProgressionArray(startNumberOfProgression, oneStep, arrLength);
+
+  const missingNumberPosition = getRandomNumber(9);
+  const correctAnswer = array[missingNumberPosition];
+
+  array.splice(missingNumberPosition, 1, '..');
+  const question = array.join(' ');
+
+  return [question, correctAnswer];
+};
+
+export default () => {
   const roundsData = [];
   for (let i = 0; i < countOfRounds; i += 1) {
-    const oneStep = getRandomNumber(10, 2);
-    const startNumberOfProgression = getRandomNumber(100);
-    const array = generateProgressionArray(startNumberOfProgression, oneStep, arrLength);
-
-    const missingNumberPosition = getRandomNumber(9);
-    const correctAnswer = array[missingNumberPosition];
-
-    array.splice(missingNumberPosition, 1, '..');
-    const question = array.join(' ');
-
-    roundsData.push([question, correctAnswer]);
+    roundsData.push(progressionRoundData());
   }
   runGame(roundsData, description);
 };
-export default runProgressionGame;
