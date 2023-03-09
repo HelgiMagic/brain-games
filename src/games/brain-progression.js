@@ -1,5 +1,5 @@
 import {
-  runGame, getRandomNumber, generateRoundsData,
+  runGame, getRandomNumber, countOfRounds,
 } from '../index.js';
 
 const description = 'What number is missing in the progression?';
@@ -28,6 +28,9 @@ const generateProgressionRoundData = () => {
 };
 
 export default () => {
-  const roundsData = generateRoundsData(generateProgressionRoundData);
+  const roundsData = [];
+  for (let i = 0; i < countOfRounds; i += 1) {
+    roundsData.push(generateProgressionRoundData());
+  }
   runGame(roundsData, description);
 };
