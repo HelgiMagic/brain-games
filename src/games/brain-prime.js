@@ -4,7 +4,7 @@ import {
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrimeNumber = (number) => {
+const isPrime = (number) => {
   if (number < 2) { return false; }
   for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) { return false; }
@@ -12,13 +12,13 @@ const isPrimeNumber = (number) => {
   return true;
 };
 
-const primeRoundData = () => {
+const generatePrimeRoundData = () => {
   const number = getRandomNumber(100);
-  const correctAnswer = isPrimeNumber(number) ? 'yes' : 'no';
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [number, correctAnswer];
 };
 
 export default () => {
-  const roundsData = generateRoundsData(primeRoundData);
+  const roundsData = generateRoundsData(generatePrimeRoundData);
   runGame(roundsData, description);
 };

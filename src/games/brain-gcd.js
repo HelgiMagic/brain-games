@@ -14,7 +14,7 @@ const findGcd = (number1, number2) => {
   return findGcd(remainder, minNumber);
 };
 
-const gcdRoundData = () => {
+const generateGcdRoundData = () => {
   const number1 = getRandomNumber(100);
   const number2 = getRandomNumber(100);
 
@@ -24,6 +24,6 @@ const gcdRoundData = () => {
 };
 
 export default () => {
-  const roundsData = generateRoundsData(gcdRoundData);
+  const roundsData = generateRoundsData(generateGcdRoundData);
   runGame(roundsData, description);
 };

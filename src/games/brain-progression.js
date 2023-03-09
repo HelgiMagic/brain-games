@@ -13,7 +13,7 @@ const generateProgressionArray = (startNumber, oneStep, length) => {
   return result;
 };
 
-const progressionRoundData = () => {
+const generateProgressionRoundData = () => {
   const oneStep = getRandomNumber(10, 2);
   const startNumberOfProgression = getRandomNumber(100);
   const array = generateProgressionArray(startNumberOfProgression, oneStep, arrLength);
@@ -28,6 +28,6 @@ const progressionRoundData = () => {
 };
 
 export default () => {
-  const roundsData = generateRoundsData(progressionRoundData);
+  const roundsData = generateRoundsData(generateProgressionRoundData);
   runGame(roundsData, description);
 };

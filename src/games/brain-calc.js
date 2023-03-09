@@ -16,7 +16,7 @@ const calcNumbs = (number1, number2, operator) => {
   return result;
 };
 
-const calcRoundData = () => {
+const generateCalcRoundData = () => {
   const operators = ['+', '-', '*'];
   const number1 = getRandomNumber(30);
   const number2 = getRandomNumber(30);
@@ -27,6 +27,6 @@ const calcRoundData = () => {
 };
 
 export default () => {
-  const roundsData = generateRoundsData(calcRoundData);
+  const roundsData = generateRoundsData(generateCalcRoundData);
   runGame(roundsData, description);
 };
