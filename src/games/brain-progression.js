@@ -7,8 +7,8 @@ const arrLength = 10;
 
 const generateProgressionArray = (startNumber, oneStep, length) => {
   const result = [];
-  for (let i = 0, currentNumber = startNumber; i < length; i += 1, currentNumber += oneStep) {
-    result.push(currentNumber);
+  for (let i = startNumber; result.length < length; i += oneStep) {
+    result.push(i);
   }
   return result;
 };

@@ -23,15 +23,8 @@ const runGame = (roundsData, description) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-/* const generateRoundsData = (func) => {
-  const roundsData = [];
-  for (let i = 0; i < countOfRounds; i += 1) {
-    roundsData.push(func());
-  }
-  return roundsData;
-};
-*/
 const getRandomNumber = (maxI, minI = 0) => Math.floor(Math.random() * ((maxI + 1) - minI) + minI);
+// maxI, minI = max number included, min number included
 
 export {
   runGame, countOfRounds, getRandomNumber,
