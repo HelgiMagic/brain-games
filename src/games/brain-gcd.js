@@ -19,7 +19,7 @@ const generateGcdRoundData = () => {
 
   const question = `${number1} ${number2}`;
   const correctAnswer = getGcd(number1, number2);
-  return [question, correctAnswer];
+  return [question, correctAnswer.toString()];
 };
 
 export default () => {

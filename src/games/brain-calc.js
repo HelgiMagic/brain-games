@@ -5,15 +5,16 @@ import {
 const description = 'What is the result of the expression?';
 
 const calcNumbs = (number1, number2, operator) => {
-  let result;
-  if (operator === '+') {
-    result = number1 + number2;
-  } else if (operator === '-') {
-    result = number1 - number2;
-  } else if (operator === '*') {
-    result = number1 * number2;
+  switch (operator) {
+    case '+':
+      return number1 + number2;
+    case '-':
+      return number1 - number2;
+    case '*':
+      return number1 * number2;
+    default:
+      throw new Error(`Unknown operator: '${operator}'!`);
   }
-  return result;
 };
 
 const generateCalcRoundData = () => {
@@ -23,7 +24,7 @@ const generateCalcRoundData = () => {
   const operator = operators[getRandomNumber(2)];
   const question = `${number1} ${operator} ${number2}`;
   const correctAnswer = calcNumbs(number1, number2, operator);
-  return [question, correctAnswer];
+  return [question, correctAnswer.toString()];
 };
 
 export default () => {

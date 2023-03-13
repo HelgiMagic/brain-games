@@ -12,7 +12,7 @@ const runGame = (roundsData, description) => {
     const [question, rightAnswer] = roundsData[i];
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    if (answer === rightAnswer.toString()) {
+    if (answer === rightAnswer) {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is the wrong answer ;(. Correct answer was '${rightAnswer}'`);

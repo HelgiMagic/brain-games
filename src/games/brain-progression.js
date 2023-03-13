@@ -24,7 +24,7 @@ const generateProgressionRoundData = () => {
   array.splice(missingNumberPosition, 1, '..');
   const question = array.join(' ');
 
-  return [question, correctAnswer];
+  return [question, correctAnswer.toString()];
 };
 
 export default () => {
