@@ -26,24 +26,23 @@ npm link
 
 There are 5 mini-games in total, commands to run and examples are given below:
 
-```bash
+```
 brain-even
 ```
 [![asciicast](https://asciinema.org/a/578106.svg)](https://asciinema.org/a/578106)
-```bash
+```
 brain-calc
 ```
 [![asciicast](https://asciinema.org/a/578110.svg)](https://asciinema.org/a/578110)
-<script async id="asciicast-578110" src="https://asciinema.org/a/578110.js"></script>
-```bash
+```
 brain-gcd
 ```
 [![asciicast](https://asciinema.org/a/578108.svg)](https://asciinema.org/a/578108)
-```bash
+```
 brain-progression
 ```
 [![asciicast](https://asciinema.org/a/578111.svg)](https://asciinema.org/a/578111)
-```bash
+```
 brain-prime
 ```
 [![asciicast](https://asciinema.org/a/578113.svg)](https://asciinema.org/a/578113)
