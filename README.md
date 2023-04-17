@@ -7,7 +7,7 @@
 
 A project with five math mini-games in total. You will be able to solve examples, find missing numbers in a sequence, and much more
 
-![image](https://www.bing.com/images/create/a-simple-picture-of-a-mind-game/643d721d7b464f3f8422280573ba2417?id=1Y%2fj%2fcyiBLKVQlSvfdayRA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&FORM=SYDBIC)
+![image](./src/brain-games.jpg)
 
 ### What do I need to start playing?
 
