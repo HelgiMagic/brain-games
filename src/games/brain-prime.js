@@ -1,7 +1,6 @@
 import {
   runGame, getRandomNumber, countOfRounds,
 } from '../index.js';
-
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
@@ -12,8 +11,15 @@ const isPrime = (number) => {
   return true;
 };
 
+const isEven = (number) => (number % 2 === 0);
+
+const getRandomOddNumber = (maxI, minI = 0) => { // maxI, minI = max number included, min number included
+  const number = getRandomNumber(maxI, minI);
+  return isEven(number) ? number + 1 : number;
+}
+
 const generatePrimeRoundData = () => {
-  const number = getRandomNumber(100);
+  const number = getRandomOddNumber(100);
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [number, correctAnswer];
 };

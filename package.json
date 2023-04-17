@@ -1,5 +1,5 @@
 {
-  "name": "@hexlet/code",
+  "name": "brain-games",
   "version": "1.0.0",
   "description": "A project with five math mini-games in total. You will be able to solve examples, find missing numbers in a sequence, and much more",
   "main": "index.js",
@@ -18,9 +18,11 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "dependencies": {
-    "eslint": "^8.35.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }

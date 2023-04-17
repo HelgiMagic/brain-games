@@ -7,15 +7,19 @@
 
 A project with five math mini-games in total. You will be able to solve examples, find missing numbers in a sequence, and much more
 
+![image](https://www.bing.com/images/create/a-simple-picture-of-a-mind-game/643d721d7b464f3f8422280573ba2417?id=1Y%2fj%2fcyiBLKVQlSvfdayRA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&FORM=SYDBIC)
+
 ### What do I need to start playing?
 
-1. Copy the repository to your computer using git clone
-```bash
-git clone https://github.com/HelgiMagic/frontend-project-44.git
+1. Install [node.js](https://nodejs.org/). Use the instructions on the website.
+2. Copy the repository to your computer using git clone:
 ```
-2. To start using this project, type the npm install @hexlet/code. This command will install all the necessary modules for the project to work.
-```bash
-npm install @hexlet/code
+git clone https://github.com/HelgiMagic/frontend-project-46.git
+```
+3. To start using this project, copy and paste the following commands into the command line. This command will install all the necessary modules for the project to work.
+```
+npm ci
+npm link
 ```
 
 ### What mini-games are available and how to launch them?
@@ -25,20 +29,21 @@ There are 5 mini-games in total, commands to run and examples are given below:
 ```bash
 brain-even
 ```
-[![asciicast](https://asciinema.org/a/lUn08YgSw3oB8ZR2G1AkuJBA1.svg)](https://asciinema.org/a/lUn08YgSw3oB8ZR2G1AkuJBA1)
+[![asciicast](https://asciinema.org/a/578106.svg)](https://asciinema.org/a/578106)
 ```bash
 brain-calc
 ```
-[![asciicast](https://asciinema.org/a/6AkcQFP3seKPIZ3tyY9b5hfJV.svg)](https://asciinema.org/a/6AkcQFP3seKPIZ3tyY9b5hfJV)
+[![asciicast](https://asciinema.org/a/578110.svg)](https://asciinema.org/a/578110)
+<script async id="asciicast-578110" src="https://asciinema.org/a/578110.js"></script>
 ```bash
 brain-gcd
 ```
-[![asciicast](https://asciinema.org/a/botg5Rt1nOUbk2izWryMXaM90.svg)](https://asciinema.org/a/botg5Rt1nOUbk2izWryMXaM90)
+[![asciicast](https://asciinema.org/a/578108.svg)](https://asciinema.org/a/578108)
 ```bash
 brain-progression
 ```
-[![asciicast](https://asciinema.org/a/9XlQtv4Tu2BecNVlnkGbSC27s.svg)](https://asciinema.org/a/9XlQtv4Tu2BecNVlnkGbSC27s)
+[![asciicast](https://asciinema.org/a/578111.svg)](https://asciinema.org/a/578111)
 ```bash
 brain-prime
 ```
-[![asciicast](https://asciinema.org/a/3aCgP4wkTSmz7v06fNjoQfaWx.svg)](https://asciinema.org/a/3aCgP4wkTSmz7v06fNjoQfaWx)
+[![asciicast](https://asciinema.org/a/578113.svg)](https://asciinema.org/a/578113)
