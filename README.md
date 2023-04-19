@@ -13,9 +13,9 @@ A project with five math mini-games in total. You will be able to solve examples
 1. Install [node.js](https://nodejs.org/). Use the instructions on the website.
 2. Copy the repository to your computer using git clone:
 ```
-git clone https://github.com/HelgiMagic/frontend-project-46.git
+git clone https://github.com/HelgiMagic/brain-games.git
 ```
-3. To start using this project, copy and paste the following commands into the command line. This command will install all the necessary modules for the project to work.
+3. To start using this project, copy and paste the following commands into the command line. This commands will install all the necessary modules for the project to work.
 ```
 npm ci
 npm link
