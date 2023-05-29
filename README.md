@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 
-<a href="https://codeclimate.com/github/HelgiMagic/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/87073acfe92277dbc14e/maintainability" /></a>
+<a href="https://codeclimate.com/github/HelgiMagic/brain-games/maintainability"><img src="https://api.codeclimate.com/v1/badges/5252fedd1e9105df8c1c/maintainability" /></a>
 
 ### What is it?
 
